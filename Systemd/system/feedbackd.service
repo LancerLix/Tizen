@@ -1,0 +1,19 @@
+[Unit]
+Description=System Vibrator Daemon
+After=deviced.service
+
+[Service]
+Type=notify
+SmackProcessLabel=System
+ExecStart=/usr/bin/feedbackd
+Restart=always
+RestartSec=0
+KillSignal=SIGUSR1
+CapabilityBoundingSet=~CAP_MAC_ADMIN
+CapabilityBoundingSet=~CAP_MAC_OVERRIDE
+User=system_fw
+Group=system_fw
+SupplementaryGroups=input
+
+[Install]
+WantedBy=multi-user.target

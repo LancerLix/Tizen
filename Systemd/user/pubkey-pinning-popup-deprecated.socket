@@ -1,0 +1,7 @@
+[Socket]
+ListenStream=/tmp/.pubkey-pinning-popup.sock
+SocketMode=0777
+Service=pubkey-pinning-popup-deprecated.service
+
+[Install]
+WantedBy=sockets.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=FIDO Client service
+
+[Service]
+User=service_fw
+Group=service_fw
+SmackProcessLabel=System
+Type=dbus
+BusName=org.tizen.fido
+ExecStart=/usr/bin/fido-service
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=krate management daemon
+
+[Service]
+Type=simple
+SmackProcessLabel=System
+ExecStart=/usr/bin/krated
+Restart=on-failure
+ExecReload=/bin/kill -HUP $MAINPID
+CapabilityBoundingSet=~CAP_MAC_ADMIN
+CapabilityBoundingSet=~CAP_MAC_OVERRIDE
+
+[Install]
+WantedBy=multi-user.target

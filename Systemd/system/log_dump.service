@@ -1,0 +1,11 @@
+[Unit]
+Description=log_dump service
+
+[Service]
+Type=dbus
+BusName=org.tizen.system.crash
+ExecStart=/usr/bin/log_dump --dbus
+SmackProcessLabel=System
+SupplementaryGroups=log systemd-journal
+Nice=-5
+KillMode=process

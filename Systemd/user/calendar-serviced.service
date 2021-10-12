@@ -1,0 +1,10 @@
+[Unit]
+Description=Calendar Service daemon
+After=contacts-service.service
+Requires=contacts-service.service
+
+[Service]
+Type=dbus
+BusName=org.tizen.CalendarService.dbus
+Environment="TIMEOUT=90"
+ExecStart=/usr/bin/calendar-serviced $TIMEOUT

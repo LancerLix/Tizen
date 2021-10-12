@@ -1,0 +1,14 @@
+[Unit]
+Description=Call Manager Daemon
+After=tizen-runtime.target telephony-daemon.service contacts-service.service pulseaudio.service
+
+[Service]
+User=telephony
+Group=telephony
+SmackProcessLabel=System
+ExecStart=/usr/bin/callmgrd
+Restart=on-failure
+RestartSec=0
+
+[Install]
+WantedBy=multi-user.target

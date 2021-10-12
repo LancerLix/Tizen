@@ -1,0 +1,10 @@
+[Unit]
+Description=Start the Cert-Checker
+Requires=dbus.service
+
+[Service]
+User=security_fw
+Group=security_fw
+SmackProcessLabel=System
+ExecStart=/usr/bin/cert-checker
+Sockets=cert-checker.socket

@@ -1,0 +1,13 @@
+[Unit]
+Description=FIDO ASM service
+
+[Service]
+ExecStart=/usr/bin/fido-asm
+SmackProcessLabel=System
+Type=dbus
+BusName=org.tizen.fidoasm
+User=service_fw
+Group=service_fw
+
+[Install]
+WantedBy=multi-user.target

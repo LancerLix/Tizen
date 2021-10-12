@@ -1,0 +1,8 @@
+[Socket]
+ListenStream=/run/user/%U/askuser-notification-stream.socket
+SocketMode=0777
+
+Service=askuser-notification.service
+
+[Install]
+WantedBy=sockets.target

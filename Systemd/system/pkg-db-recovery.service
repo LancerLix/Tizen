@@ -1,0 +1,14 @@
+[Unit]
+Description=Package DB Recovery Service
+DefaultDependencies=false
+Before=ac.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+SmackProcessLabel=System
+ExecStart=/usr/bin/pkg-db-recovery
+
+[Install]
+WantedBy=multi-user.target
+

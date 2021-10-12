@@ -1,0 +1,9 @@
+[Unit]
+Description=Contacts Service socket
+
+[Socket]
+ListenStream=/run/user/%U/system_share/.contacts_svc_ipc
+Service=contacts-service.service
+
+[Install]
+WantedBy=sockets.target

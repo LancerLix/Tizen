@@ -1,0 +1,13 @@
+[Unit]
+Description=Resource management daemon
+
+[Service]
+Type=simple
+SmackProcessLabel=System
+ExecStart=/usr/bin/resourced
+MemoryLimit=30M
+Restart=on-failure
+RestartSec=0
+
+[Install]
+WantedBy=multi-user.target

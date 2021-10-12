@@ -1,0 +1,13 @@
+[Unit]
+Description=MTP initiator
+DefaultDependencies=no
+RequiresMountsFor=/opt
+
+[Service]
+User=network_fw
+Group=network_fw
+Type=simple
+SmackProcessLabel=System
+SupplementaryGroups=priv_mediastorage priv_externalstorage
+ExecStart=/usr/bin/mtp-initiator
+KillMode=process

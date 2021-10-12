@@ -1,0 +1,11 @@
+[Unit]
+Description=Change the efl configures.
+DefaultDependencies=no
+Before=starter.service
+After=enlightenment-user.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/sh -c "while [ ! -f /run/.wm_ready ] ; do /usr/bin/sleep .1 ; done ; exec /usr/bin/efl_config"
+EnvironmentFile=-/run/tizen-system-env

@@ -1,0 +1,14 @@
+[Unit]
+Description=PASS daemon
+
+[Service]
+SmackProcessLabel=System
+ExecStart=/usr/bin/pass
+Restart=always
+RestartSec=0
+KillSignal=SIGUSR1
+User=system_fw
+Group=system_fw
+
+[Install]
+WantedBy=multi-user.target

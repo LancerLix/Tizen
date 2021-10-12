@@ -1,0 +1,7 @@
+[Unit]
+Description=Context-Agent Socket
+
+[Socket]
+ListenStream=/run/user/%U/system_share/.contextd-agent.socket
+Service=contextd-agent.service
+Accept=false

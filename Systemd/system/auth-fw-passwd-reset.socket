@@ -1,0 +1,16 @@
+[Socket]
+ListenStream=/run/.auth-fw-passwd-reset.socket
+SocketUser=security_fw
+SocketGroup=security_fw
+SocketMode=0777
+SmackLabelIPIn=*
+SmackLabelIPOut=@
+
+Service=auth-fw.service
+
+[Unit]
+Wants=auth-fw.target
+Before=auth-fw.target
+
+[Install]
+WantedBy=sockets.target

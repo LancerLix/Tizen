@@ -1,0 +1,8 @@
+[Unit]
+Description=CSR popup service for user session
+
+[Service]
+Type=simple
+EnvironmentFile=/run/tizen-system-env
+ExecStart=/usr/bin/csr-popup
+Sockets=csr-popup.socket

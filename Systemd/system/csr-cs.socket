@@ -1,0 +1,14 @@
+[Unit]
+Description=Csr content screening socket
+Wants=csr.service
+Before=csr.service
+
+[Socket]
+ListenStream=/tmp/.csr-cs.socket
+Service=csr.service
+SocketMode=0777
+SmackLabelIPIn=*
+SmackLabelIPOut=@
+
+[Install]
+WantedBy=sockets.target

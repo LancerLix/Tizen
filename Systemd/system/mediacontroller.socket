@@ -1,0 +1,11 @@
+[Unit]
+Description=MediaController Service socket
+
+[Socket]
+SocketUser=multimedia_fw
+SocketGroup=multimedia_fw
+ListenStream=/run/.mediacontroller.sock
+Service=mediacontroller.service
+
+[Install]
+WantedBy=sockets.target

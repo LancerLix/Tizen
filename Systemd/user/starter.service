@@ -1,0 +1,15 @@
+[Unit]
+Description=Start the "starter" program
+DefaultDependencies=no
+After=efl-config.service enlightenment-user.service
+Before=basic.target
+ConditionPathExists=!/run/user/%U/.container
+
+[Service]
+EnvironmentFile=/run/tizen-system-env
+ExecStart=/usr/bin/starter
+Restart=on-failure
+RestartSec=0
+KillSignal=SIGKILL
+Type=notify
+TimeoutStartSec=365d

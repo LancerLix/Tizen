@@ -1,0 +1,18 @@
+[Unit]
+Description=audit-trail daemon
+
+[Service]
+Type=simple
+User=security_fw
+Group=security_fw
+SmackProcessLabel=System
+ExecStart=/usr/bin/audit-trail-daemon
+Restart=on-failure
+ExecReload=/bin/kill -HUP $MAINPID
+CapabilityBoundingSet=~CAP_MAC_ADMIN
+CapabilityBoundingSet=~CAP_MAC_OVERRIDE
+Capabilities=cap_audit_control,cap_audit_write=i
+SecureBits=keep-caps
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Media server user
+DefaultDependencies=no
+
+[Service]
+Type=idle
+CPUAccounting=true
+CPUQuota=10%
+ExecStart=/usr/bin/sh -c "/usr/bin/mediadb-update check_db;/usr/bin/mediadb-update -r `/usr/bin/tzplatform-get TZ_USER_CONTENT | /usr/bin/sed -e 's/^.*=//g'`;/usr/bin/mediadb-update check_storage"
+
+[Install]
+WantedBy=default.target

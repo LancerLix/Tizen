@@ -1,0 +1,16 @@
+drmModeGetResources				获取DRM支持的Mode资源(FB/CRTC/Connector/Encoder对象)信息drmModeResPtr/drmModeRes*
+drmModeGetPlaneResources		获取DRM支持的Plane资源信息drmModePlaneResPtr/drmModePlaneRes*
+drmModeGetCrtc					通过CRTC对象id获取到CRTC对象drmModeCrtcPtr/drmModeCrtc*
+drmModeGetConnector				通过Connector对象id获取到Connector对象drmModeConnectorPtr/drmModeConnector*
+drmModeGetEncoder				通过Encoder对象id获取到Encoder对象drmModeEncoderPtr/drmModeEncoder*
+drmModeGetPlane					通过Plane对象id获取到Plane对象drmModePlanePtr/drmModePlane*
+drmModeObjectGetProperties		通过DRM对象id获取对象属性id集合drmModeObjectPropertiesPtr/drmModeObjectProperties*
+drmModeGetProperty				通过属性id获取属性描述指针drmModePropertyPtr/drmModePropertyRes*
+drmModeCreatePropertyBlob		创建一个特定长度的属性数据块，返回该属性块id
+drmModeGetPropertyBlob			通过属性id获取属性块描述指针drmModePropertyBlobPtr/drmModePropertyBlobRes*
+
+drmModeAtomicAlloc				分配一个DRM原子请求drmModeAtomicReqPtr/drmModeAtomicReq*
+drmModeAtomicAddProperty		将需要设置DRM对象的属性添加到到DRM原子请求
+drmModeAtomicCommit				提交DRM原子请求
+drmModeAtomicSetCursor			清空DRM原子请求
+drmModeAtomicFree				释放DRM原子请求

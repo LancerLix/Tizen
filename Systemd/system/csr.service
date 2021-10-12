@@ -1,0 +1,14 @@
+[Unit]
+Description=Content Screening and Reputation service
+Requires=csr-cs.socket csr-wp.socket csr-admin.socket
+
+[Service]
+User=security_fw
+Group=security_fw
+SmackProcessLabel=System
+SecureBits=keep-caps
+Capabilities=cap_dac_override,cap_fowner=i
+ExecStart=/usr/bin/csr-server
+Sockets=csr-cs.socket
+Sockets=csr-wp.socket
+Sockets=csr-admin.socket

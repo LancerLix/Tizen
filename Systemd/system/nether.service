@@ -1,0 +1,38 @@
+#
+#  Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
+#
+#  Contact: Roman Kubiak (r.kubiak@samsung.com)
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License
+#
+
+[Unit]
+Description=nether service
+
+[Service]
+Type=simple
+ExecStartPre=/usr/sbin/iptables-restore /etc/nether/nether.rules
+ExecStartPre=/usr/sbin/ip6tables-restore /etc/nether/nether_ipv6.rules
+ExecStart=/usr/bin/nether -l JOURNAL -P policy=/etc/nether/cynara.policy -B /etc/nether/file.policy
+Restart=always
+ExecReload=/bin/kill -HUP $MAINPID
+User=security_fw
+Group=security_fw
+SecureBits=keep-caps
+Capabilities=cap_net_admin=i
+CapabilityBoundingSet=CAP_NET_ADMIN
+SmackProcessLabel=System
+PermissionsStartOnly=true
+
+[Install]
+WantedBy=multi-user.target

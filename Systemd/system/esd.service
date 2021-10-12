@@ -1,0 +1,15 @@
+[Unit]
+Description=Start the Event System Daemon
+Wants=wait-mount@opt-usr.service
+After=wait-mount@opt-usr.service
+
+[Service]
+User=app_fw
+Group=app_fw
+SmackProcessLabel=System
+ExecStart=/usr/bin/esd
+Restart=on-failure
+RestartSec=0
+
+[Install]
+WantedBy=default.target

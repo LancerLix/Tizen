@@ -1,0 +1,15 @@
+[Unit]
+Description=Ask user notification
+
+[Service]
+ExecStart=/usr/bin/askuser-notification
+Type=notify
+Sockets=askuser-notification-datagram.socket
+Sockets=askuser-notification-stream.socket
+TimeoutStopSec=10
+TimeoutStartSec=10
+
+EnvironmentFile=-/run/tizen-system-env
+
+[Install]
+WantedBy=multi-user.target

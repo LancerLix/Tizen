@@ -1,0 +1,11 @@
+[Unit]
+Description=Cert-checker popup socket
+
+[Socket]
+ListenStream=/tmp/.cert-checker-popup.socket
+SocketMode=0777
+
+Service=cert-checker-popup.service
+
+[Install]
+WantedBy=sockets.target

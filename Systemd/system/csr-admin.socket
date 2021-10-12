@@ -1,0 +1,14 @@
+[Unit]
+Description=Csr admin socket
+Wants=csr.service
+Before=csr.service
+
+[Socket]
+ListenStream=/tmp/.csr-admin.socket
+Service=csr.service
+SocketMode=0777
+SmackLabelIPIn=*
+SmackLabelIPOut=@
+
+[Install]
+WantedBy=sockets.target

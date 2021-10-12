@@ -1,0 +1,10 @@
+[Socket]
+ListenStream=/tmp/.cert-checker.socket
+SocketUser=security_fw
+SocketGroup=security_fw
+SocketMode=0777
+
+Service=cert-checker.service
+
+[Install]
+WantedBy=sockets.target

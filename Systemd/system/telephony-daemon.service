@@ -1,0 +1,16 @@
+[Unit]
+Description=Telephony daemon
+After=secure-storage.service
+
+[Service]
+User=telephony
+Group=telephony
+SmackProcessLabel=System
+ExecStart=/usr/bin/telephony-daemon
+Restart=on-failure
+RestartSec=0
+Capabilities=cap_net_admin,cap_dac_override=i
+SecureBits=keep-caps
+
+[Install]
+WantedBy=multi-user.target

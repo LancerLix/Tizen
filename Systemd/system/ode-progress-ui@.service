@@ -1,0 +1,11 @@
+[Unit]
+Description=ODE internal %i progress UI
+
+[Service]
+User=application
+Group=application
+SmackProcessLabel=System
+EnvironmentFile=/run/tizen-system-env
+EnvironmentFile=/run/xdg-root-env
+ExecStart=/usr/bin/ode progress %i Internal
+

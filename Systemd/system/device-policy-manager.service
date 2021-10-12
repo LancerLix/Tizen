@@ -1,0 +1,19 @@
+[Unit]
+Description=Device Policy Manager
+Wants=lbs-server.service net-config.service pulseaudio.service
+After=lbs-server.service net-config.service pulseaudio.service
+
+[Service]
+Type=simple
+User=security_fw
+Group=security_fw
+SmackProcessLabel=System
+ExecStartPre=/usr/bin/dpm-storage-builder
+ExecStart=/usr/bin/device-policy-manager -o 5000
+Restart=on-failure
+ExecReload=/bin/kill -HUP $MAINPID
+CapabilityBoundingSet=~CAP_MAC_ADMIN
+CapabilityBoundingSet=~CAP_MAC_OVERRIDE
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,20 @@
+[Unit]
+Description=lbs server daemon
+After=callmgr.service
+Requires=callmgr.service
+
+[Service]
+#Type=forking
+#ExecStart=/etc/rc.d/rc5.d/S90lbs-server
+Type=dbus
+BusName=org.tizen.lbs.Providers.LbsServer
+SmackProcessLabel=System
+ExecStart=/usr/bin/lbs-server
+MemoryLimit=10M
+User=location
+Group=location
+CapabilityBoundingSet=~CAP_MAC_ADMIN
+CapabilityBoundingSet=~CAP_MAC_OVERRIDE
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=krate mount manager for UID %U
+DefaultDependencies=no
+Wants=wait-mount@opt-usr.service
+After=wait-mount@opt-usr.service
+Before=session-bind.service basic.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/krate-mount

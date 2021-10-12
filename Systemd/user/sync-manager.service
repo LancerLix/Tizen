@@ -1,0 +1,10 @@
+[Unit]
+Description=sync manager service startup script
+
+[Service]
+Type=dbus
+BusName=org.tizen.sync
+ExecStart=/usr/bin/sync-service
+
+[Install]
+WantedBy=default.target

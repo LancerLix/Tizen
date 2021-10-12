@@ -1,0 +1,19 @@
+[Unit]
+Description=Message server
+After=contacts-service.service systemd-logind.service
+Wants=wait-mount@opt-usr.service
+After=wait-mount@opt-usr.service
+
+[Service]
+Type=simple
+User=messaging
+Group=messaging
+SmackProcessLabel=System
+ExecStart=/usr/bin/msg-server
+Restart=on-failure
+MemoryLimit=10M
+Capabilities=cap_chown,cap_lease,cap_net_admin,cap_net_raw=i
+SecureBits=keep-caps
+
+[Install]
+WantedBy=multi-user.target

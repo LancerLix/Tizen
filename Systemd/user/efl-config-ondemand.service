@@ -1,0 +1,7 @@
+[Unit]
+Description=Change the efl configures.
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/efl_config --with-message
+EnvironmentFile=-/run/tizen-system-env

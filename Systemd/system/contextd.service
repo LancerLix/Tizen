@@ -1,0 +1,17 @@
+[Unit]
+Description=Contextual Service Framework Server Daemon
+After=systemd-logind.service
+Wants=wait-mount@opt-usr.service
+After=wait-mount@opt-usr.service
+
+[Service]
+User=service_fw
+Group=service_fw
+Type=dbus
+BusName=org.tizen.context
+ExecStart=/usr/bin/contextd
+Restart=on-failure
+SmackProcessLabel=System
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=SMACK merged rules loading
+After=local-fs.target
+Before=basic.target security-manager.socket security-manager-cleanup.service
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/security-manager-rules-loader
+SmackProcessLabel=System::Privileged
+
+[Install]
+WantedBy=basic.target security-manager.socket security-manager-cleanup.service
+

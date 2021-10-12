@@ -1,0 +1,12 @@
+[Socket]
+ListenStream=/tmp/.audit-trail.sock
+SocketUser=security_fw
+SocketGroup=security_fw
+SocketMode=0755
+SmackLabelIPIn=*
+SmackLabelIPOut=@
+Service=audit-trail.service
+
+[Install]
+WantedBy=sockets.target
+

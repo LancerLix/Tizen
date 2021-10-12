@@ -1,0 +1,11 @@
+[Unit]
+Description=Contextual Service Framework User-Level Agent Daemon
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/contextd-agent
+Sockets=contextd-agent.socket
+Restart=no
+
+[Install]
+WantedBy=sockets.target

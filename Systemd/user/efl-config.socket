@@ -1,0 +1,10 @@
+[Unit]
+Description=EFL Config Service socket
+
+[Socket]
+ListenStream=/run/user/%U/system_share/.efl-config.sock
+Service=efl-config-ondemand.service
+SocketMode=0777
+
+[Install]
+WantedBy=sockets.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Cert-checker popup service
+
+[Service]
+Type=simple
+EnvironmentFile=/run/tizen-system-env
+ExecStart=/usr/bin/cert-checker-popup
+Sockets=cert-checker-popup.socket

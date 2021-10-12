@@ -1,0 +1,17 @@
+[Unit]
+Description=NFC manager
+After=system-server.service nfc-manager.socket
+
+[Service]
+Type=dbus
+BusName=org.tizen.NetNfcService
+ExecStart=/usr/bin/nfc-manager-daemon
+KillSignal=SIGKILL
+MemoryLimit=30M
+Sockets=nfc-manager.socket
+User=network_fw
+Group=network_fw
+SmackProcessLabel=System
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=WiFi Direct Manager service
+Requires=dbus.socket
+After=dbus.socket
+
+[Service]
+Type=dbus
+BusName=net.wifidirect
+SmackProcessLabel=System
+ExecStart=/usr/bin/wfd-manager
+User=network_fw
+Group=network_fw
+Capabilities=cap_net_bind_service,cap_net_broadcast,cap_net_admin,cap_net_raw,cap_kill=i
+SecureBits=keep-caps
+

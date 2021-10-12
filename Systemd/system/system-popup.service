@@ -1,0 +1,10 @@
+[Unit]
+Description=System popup
+
+[Service]
+Type=dbus
+BusName=org.tizen.system.popup
+User=system_fw
+Group=system_fw
+SmackProcessLabel=System
+ExecStart=/usr/bin/sysapp-launcher

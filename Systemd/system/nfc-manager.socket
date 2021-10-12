@@ -1,0 +1,7 @@
+[Socket]
+ListenStream=/tmp/.nfc-hce.sock
+SocketMode=0777
+SmackLabelIPIn=*
+SmackLabelIPOut=@
+
+Service=nfc-manager.service

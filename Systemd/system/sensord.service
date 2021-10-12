@@ -1,0 +1,14 @@
+[Unit]
+Description=Sensor Daemon
+
+[Service]
+User=sensor
+Group=input
+Type=notify
+SmackProcessLabel=System
+ExecStart=/usr/bin/sensord
+MemoryLimit=20M
+Sockets=sensord.socket
+
+[Install]
+WantedBy=multi-user.target

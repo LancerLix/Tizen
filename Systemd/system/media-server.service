@@ -1,0 +1,19 @@
+[Unit]
+Description=Media server
+Wants=wait-mount@opt-usr.service
+After=wait-mount@opt-usr.service
+
+[Service]
+User=multimedia_fw
+Group=multimedia_fw
+SmackProcessLabel=System
+SupplementaryGroups=priv_mediastorage priv_externalstorage
+Type=simple
+ExecStart=/usr/bin/media-server
+Restart=on-failure
+RestartSec=0
+Capabilities=cap_dac_read_search=i
+SecureBits=keep-caps
+
+[Install]
+WantedBy=multi-user.target
